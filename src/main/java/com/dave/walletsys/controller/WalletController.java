@@ -20,7 +20,7 @@ public class WalletController {
         return service.getAllWallets();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Wallet getWalletById(@PathVariable Long id){
         return service.getWalletById(id);
     }
@@ -31,13 +31,13 @@ public class WalletController {
         return service.addWallet(wallet);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public Wallet updateWallet(@PathVariable Long id, @RequestBody WalletDTO walletDTO){
         Wallet wallet= walletMapper.toEntity(walletDTO);
         return service.updateWallet(id,wallet);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public void removeWallet(@PathVariable Long id){
         service.removeWallet(id);
     }
